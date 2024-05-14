@@ -1,38 +1,69 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
-    <Nullable>enable</Nullable>
+    <TargetFrameworks>net20;net35;net40;net45;netstandard2.0;netstandard2.1;net6.0</TargetFrameworks>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Title>APIVerve.API.DNSLookup</Title>
-    <Version>1.0.0</Version>
+    <Version>1.0.5</Version>
     <Authors>APIVerve</Authors>
     <Company>APIVerve</Company>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <IncludeContentInPack>true</IncludeContentInPack>
+
     <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
     <PackageReadmeFile>Readme.md</PackageReadmeFile>
-    <PackageProjectUrl>https://apiverve.com/marketplace/api/dnslookup</PackageProjectUrl>
+    <PackageProjectUrl>https://apiverve.com/?utm_source=nuget</PackageProjectUrl>
     <SignAssembly>False</SignAssembly>
     <Description>DNS Lookup is a simple tool for looking up the DNS records of a domain. It returns the A, MX, and other records of the domain.</Description>
-    <RepositoryUrl>https://github.com/apiverve/dnslookup-NET</RepositoryUrl>
+    <RepositoryUrl>https://github.com/apiverve/dnslookup.NET-API</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageTags>dns; dns lookup; dns records; dns lookup api; dns records api; dns lookup tool; dns records tool; dns lookup software; dns records software; dns lookup service; dns records service; dns lookup library; dns records library; dns lookup sdk; dns records sdk; dns lookup code; dns records code; dns lookup script; dns records script; dns lookup program; dns records program; dns lookup application; dns records application; dns lookup app; dns records app; dns lookup tool; dns records tool; dns lookup utility; dns records utility; dns lookup helper; dns records helper; dns lookup helper tool; dns records helper tool; dns lookup helper software; dns records helper software; dns lookup helper service; dns records helper service; dns lookup helper library; dns records helper library; dns lookup helper sdk; dns records helper sdk; dns lookup helper code; dns records helper code; dns lookup helper script; dns records helper script; dns lookup helper program; dns records helper program; dns lookup helper application; dns records helper application; dns lookup helper app; dns records helper app; dns lookup helper tool; dns records helper tool; dns lookup helper utility; dns records helper utility; dns lookup helper; dns records helper</PackageTags>
+    <PackageTags>dns; dns lookup; dns records; dns lookup api; dns records api</PackageTags>
     <Copyright>©2024 APIVerve. All Rights Reserved</Copyright>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+    <PackageIcon>favicon@128.png</PackageIcon>
+    <BaseOutputPath>.\bin</BaseOutputPath>
+    <GenerateDocumentationFile>False</GenerateDocumentationFile>
+    <PackageId>APIVerve.API.DNSLookup</PackageId>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard2.0|AnyCPU'">
+    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <None Remove="LICENSE" />
+    <None Remove="Readme.md" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="LICENSE">
+    <Content Include="favicon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Readme.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\Media\favicon@128.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
-    <None Update="Readme.md">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
 </Project>
