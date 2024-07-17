@@ -50,11 +50,11 @@ public class records
     [JsonProperty("SOA")]
     public sOA sOA { get; set; }
 
-    [JsonProperty("TXT")]
-    public string[][] tXT { get; set; }
-
     [JsonProperty("MX")]
     public mX[] mX { get; set; }
+
+    [JsonProperty("TXT")]
+    public string[][] tXT { get; set; }
 
 }
 
