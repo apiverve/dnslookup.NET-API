@@ -4,84 +4,91 @@ using Newtonsoft.Json;
 
 namespace APIVerve
 {
-public class sOA
-{
-    [JsonProperty("nsname")]
-    public string nsname { get; set; }
+    /// <summary>
+    /// SOA data
+    /// </summary>
+    public class SOA
+    {
+        [JsonProperty("nsname")]
+        public string Nsname { get; set; }
 
-    [JsonProperty("hostmaster")]
-    public string hostmaster { get; set; }
+        [JsonProperty("hostmaster")]
+        public string Hostmaster { get; set; }
 
-    [JsonProperty("serial")]
-    public int serial { get; set; }
+        [JsonProperty("serial")]
+        public int Serial { get; set; }
 
-    [JsonProperty("refresh")]
-    public int refresh { get; set; }
+        [JsonProperty("refresh")]
+        public int Refresh { get; set; }
 
-    [JsonProperty("retry")]
-    public int retry { get; set; }
+        [JsonProperty("retry")]
+        public int Retry { get; set; }
 
-    [JsonProperty("expire")]
-    public int expire { get; set; }
+        [JsonProperty("expire")]
+        public int Expire { get; set; }
 
-    [JsonProperty("minttl")]
-    public int minttl { get; set; }
+        [JsonProperty("minttl")]
+        public int Minttl { get; set; }
 
-}
+    }
+    /// <summary>
+    /// MX data
+    /// </summary>
+    public class MX
+    {
+        [JsonProperty("exchange")]
+        public string Exchange { get; set; }
 
-public class mX
-{
-    [JsonProperty("exchange")]
-    public string exchange { get; set; }
+        [JsonProperty("priority")]
+        public int Priority { get; set; }
 
-    [JsonProperty("priority")]
-    public int priority { get; set; }
+    }
+    /// <summary>
+    /// Records data
+    /// </summary>
+    public class Records
+    {
+        [JsonProperty("A")]
+        public string[] A { get; set; }
 
-}
+        [JsonProperty("NS")]
+        public string[] NS { get; set; }
 
-public class records
-{
-    [JsonProperty("A")]
-    public string[] a { get; set; }
+        [JsonProperty("SOA")]
+        public SOA SOA { get; set; }
 
-    [JsonProperty("NS")]
-    public string[] nS { get; set; }
+        [JsonProperty("MX")]
+        public MX[] MX { get; set; }
 
-    [JsonProperty("SOA")]
-    public sOA sOA { get; set; }
+        [JsonProperty("TXT")]
+        public string[][] TXT { get; set; }
 
-    [JsonProperty("MX")]
-    public mX[] mX { get; set; }
+    }
+    /// <summary>
+    /// Data data
+    /// </summary>
+    public class Data
+    {
+        [JsonProperty("domain")]
+        public string Domain { get; set; }
 
-    [JsonProperty("TXT")]
-    public string[][] tXT { get; set; }
+        [JsonProperty("records")]
+        public Records Records { get; set; }
 
-}
+    }
+    /// <summary>
+    /// API Response object
+    /// </summary>
+    public class ResponseObj
+    {
+        [JsonProperty("status")]
+        public string Status { get; set; }
 
-public class data
-{
-    [JsonProperty("domain")]
-    public string domain { get; set; }
+        [JsonProperty("error")]
+        public object Error { get; set; }
 
-    [JsonProperty("records")]
-    public records records { get; set; }
+        [JsonProperty("data")]
+        public Data Data { get; set; }
 
-}
-
-public class ResponseObj
-{
-    [JsonProperty("status")]
-    public string status { get; set; }
-
-    [JsonProperty("error")]
-    public object error { get; set; }
-
-    [JsonProperty("data")]
-    public data data { get; set; }
-
-    [JsonProperty("code")]
-    public int code { get; set; }
-
-}
-
+    }
 }
